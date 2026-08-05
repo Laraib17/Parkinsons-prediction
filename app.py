@@ -103,11 +103,14 @@ def build_prediction_form(bundle):
     columns = st.columns(3)
     for index, column in enumerate(feature_columns):
         value = defaults[column]
+        feature_min = float(dataset[column].min())
+        feature_max = float(dataset[column].max())
         with columns[index % 3]:
             inputs[column] = st.number_input(
                 label=column,
                 value=value,
-                min_value=0.0,
+                min_value=feature_min,
+                max_value=feature_max,
                 step=0.0001,
                 format='%.6f',
             )
