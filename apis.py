@@ -36,3 +36,4 @@ def sort_Data(sort_by:str=Query(...,description="Sort on basis of jitter"),order
     if order not in ['asc','desc']:
         raise HttpException(status_code=400, detail="Invalid order. Valid orders are: 'asc' or 'desc'")
     data=load_data()
+    sorted_data=sorted(data)
