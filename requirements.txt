@@ -1,8 +1,8 @@
 pandas>=1.5.0
 numpy>=1.23.0
-fastapi>=0.95.0
+fastapi==0.141.1
 uvicorn>=0.22.0
-
+openai==2.0.0
 # Data visualization
 matplotlib>=3.6.0
 seaborn>=0.12.0
