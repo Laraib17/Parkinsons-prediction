@@ -9,4 +9,4 @@ def insert_patient_data():
     print(p1.age)
     print(p1.name)
     print("inserted data")
-insert_patient_data(newboe)
+insert_patient_data()
