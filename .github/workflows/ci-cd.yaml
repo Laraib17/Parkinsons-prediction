@@ -1,0 +1,24 @@
+name: ci-cd Pipeline
+on:
+  push:
+  branches: [devops]
+jobs:
+  build-and-push:
+  run-on: ubuntu-latest
+  steps:
+    - name: checkout-code
+      uses: action/chcekout@v1
+    
+    - name: Log in to Docker Hub
+      uses: docekr/login-action@v3
+      with:
+        username: ${{secret.DOCKER_HUB_USERNAME}}
+        password: ${{secret.DOCKER_HUB_ACCESS_TOKEN}}
+
+    - name: Build and push docker Image
+      uses: docekr/build-push-action@v5
+      with:
+        context: .
+        push: true
+        tags: laraib17/Parkinsons-prediction:latest
+    
