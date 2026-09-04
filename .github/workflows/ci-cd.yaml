@@ -1,7 +1,7 @@
 name: ci-cd Pipeline
 on:
   push:
-  branches: [devops]
+  branches: [master, devops]
 jobs:
   build-and-push:
   run-on: ubuntu-latest
