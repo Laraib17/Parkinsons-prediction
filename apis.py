@@ -48,17 +48,3 @@ def filter_data(filter_by:str=Query(...,description="Filter on basis of status")
     data=load_data()
     filtered_data=[patient for patient in data if str(patient[filter_by])==value]
     return filtered_data
-
-@app.get("/stats/{field}")
-def get_stats(field:str=Query(...,description="Get statistics on basis of field")):
-    valid_fields=["jitter","shimmer","NHR","HNR"]
-    if field not in valid_fields:
-        raise HTTPException(status_code=400, detail=f"Invalid field. Valid fields are: {', '.join(valid_fields)}")
-    data=load_data()
-    values=[patient[field] for patient in data]
-    stats={
-        "mean":sum(values)/len(values),
-        "min":min(values),
-        "max":max(values)
-    }
-    return stats
