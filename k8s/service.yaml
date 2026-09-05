@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: parkinsons-api-service
 spec:
-  type: NodePort # or LoadBalancer in cloud
+  type: NodePort
   selector:
     app: parkinsons-api
   ports:
