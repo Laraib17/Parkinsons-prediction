@@ -6,9 +6,10 @@ def test_read_root():
     assert res.status_code==200
     assert "message" in res.json() or res.json is not None
 
-def test_prediction_ednpoint():
-    payload={
-        "feature1":0.5,
-        "feature1":1.5
-    }
-    res=client.post("/predict",json=payload)
+def test_get_patient_data():
+    patient_id = "phon_R01_S01_1"
+    response = client.get(f"/patients/{patient_id}")
+    assert response.status_code == 200
+    data = response.json()
+    assert data.get("name") == patient_id
+    assert "MDVP:Fo(Hz)" in data
