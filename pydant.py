@@ -7,7 +7,7 @@ class newi(BaseModel):
     age:StrictInt
     allergy:List[str]
     contact_details:Dict[str:str]
-dicto={'name':"Laraib",'age':30,'allergy':['pollen','dust'],'contacts':'phon_no':'','']}
+dicto={'name':"Laraib",'age':30,'allergy':['pollen','dust'],'contacts':{'phon_no':'','':''}}
 p1=newi(**dicto)
 def insert_patient_data():
     print(p1.age)
