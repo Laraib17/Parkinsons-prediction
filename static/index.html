@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parkinson's Prediction App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Parkinson's Prediction</h1>
+            <p>Enter the vocal features below to assess the risk of Parkinson's Disease.</p>
+        </header>
+
+        <main>
+            <form id="prediction-form">
+                <div class="form-group">
+                    <label for="fo">MDVP:Fo(Hz) - Average vocal fundamental frequency</label>
+                    <input type="number" step="any" id="fo" name="fo" required>
+                </div>
+                <div class="form-group">
+                    <label for="fhi">MDVP:Fhi(Hz) - Maximum vocal fundamental frequency</label>
+                    <input type="number" step="any" id="fhi" name="fhi" required>
+                </div>
+                <div class="form-group">
+                    <label for="flo">MDVP:Flo(Hz) - Minimum vocal fundamental frequency</label>
+                    <input type="number" step="any" id="flo" name="flo" required>
+                </div>
+                <div class="form-group">
+                    <label for="jitter_percent">MDVP:Jitter(%) - Variation in fundamental frequency</label>
+                    <input type="number" step="any" id="jitter_percent" name="jitter_percent" required>
+                </div>
+                <div class="form-group">
+                    <label for="shimmer">MDVP:Shimmer - Variation in amplitude</label>
+                    <input type="number" step="any" id="shimmer" name="shimmer" required>
+                </div>
+                <div class="form-group">
+                    <label for="hnr">HNR - Harmonics-to-noise ratio</label>
+                    <input type="number" step="any" id="hnr" name="hnr" required>
+                </div>
+                <button type="submit" id="submit-btn">Analyze Risk</button>
+            </form>
+
+            <div id="result-container" class="hidden">
+                <div id="loading" class="hidden">
+                    <div class="spinner"></div>
+                    <p>Analyzing...</p>
+                </div>
+                <div id="result" class="hidden">
+                    <h2 id="result-status"></h2>
+                    <p>Risk Probability: <span id="result-prob"></span>%</p>
+                </div>
+                <div id="error" class="hidden"></div>
+            </div>
+        </main>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
