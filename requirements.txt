@@ -5,13 +5,9 @@ joblib>=1.5.3
 
 # Data visualization
 matplotlib>=3.6.0
-seaborn>=0.12.0
-plotly>=5.11.0
 
 # Machine Learning
 scikit-learn>=1.2.0
-xgboost==3.1.0
-lightgbm==3.3.0
 
 # testing
 pytest
